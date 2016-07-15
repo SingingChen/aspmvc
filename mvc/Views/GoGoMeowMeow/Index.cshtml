@@ -1,0 +1,39 @@
+﻿@using mvc.Controllers
+@model List<UserViewModel>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>GM</h2>
+    @{
+        string Text = "12345";
+    }
+    <input type="text" value="@Text" />
+
+    @if (Text == "")
+    {
+        Text = "next text.";
+        <label>@Model[1].Address</label>
+        Text = "next text part2";
+    }
+    else
+    {
+        <label>@Model[0].Name</label>
+    }
+@for (int i = 0, length = Model.Count(); i < length; i++)
+{
+    <label> @Model[i].Address</label>
+}
+@foreach (UserViewModel aa in Model)
+{
+    <a>@aa.Name</a>
+}
+
+    @section bounce{
+        <script>
+            alert(
+                "Welcome To GoGoMeowMeow!!"
+                )
+        </script>
+    }
